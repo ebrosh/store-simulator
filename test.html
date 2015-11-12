@@ -1,7 +1,50 @@
 <html>
 <head>
+
 </head>
 <body>
-<h1>hello world!</h1>
+<h1>Local storage test!</h1>
+<div id="result">
+Checking...
+</div>
+
+<script type="text/javascript">
+
+// Feature test
+var hasStorage = (function() {
+  try {
+    localStorage.setItem("somekey", "somevalue");
+    localStorage.removeItem("somekey");
+    return true;
+  } catch (exception) {
+    return false;
+  }
+}());
+
+function visitCounter() {
+    if (hasStorage) {
+        if (localStorage.visitCounter) {
+            localStorage.visitCounter = Number(localStorage.visitCounter)+1;
+        } else {
+            localStorage.visitCounter = 1;
+        }
+		return localStorage.visitCounter;
+}
+
+function writeText(text) {
+	var element = document.getElementById("result");
+	element.innerHtml = element.innerHtml + "<br/>" + text;
+}
+
+if (hasStorage) {
+	writeText("storage supported.");
+	var visits = visitCounter();
+	writeText("You have visited " + visits + " time(s)");
+} else {
+	writeText("No Local storage supportd found!")
+}
+</script>
+
+
 </body>
 </html>
