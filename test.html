@@ -29,6 +29,7 @@ function visitCounter() {
             localStorage.visitCounter = 1;
         }
 		return localStorage.visitCounter;
+	}
 }
 
 function writeText(text) {
@@ -41,8 +42,10 @@ if (hasStorage) {
 	var visits = visitCounter();
 	writeText("You have visited " + visits + " time(s)");
 } else {
-	writeText("No Local storage supportd found!")
+	writeText("No Local storage supportd found!");
 }
+
+
 </script>
 
 
