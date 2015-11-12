@@ -34,7 +34,8 @@ function visitCounter() {
 
 function writeText(text) {
 	var element = document.getElementById("result");
-	element.innerHtml = element.innerHtml + "<br/>" + text;
+	var newHTML = element.innerHTML + "<br/>" + text;
+	element.innerHTML = newHTML;
 }
 
 if (hasStorage) {
