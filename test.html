@@ -78,23 +78,28 @@ if (hasStorage) {
 	window.contextStorage = new CDStorage("", "");
 	window.contextStorage.init();
 	contextStorage.onCacheReady().then(function () {
+		writeText("Testing 3rd party storage...");
+		setTimeout (function() {
 			var iframe_visit_counter = contextStorage.getItem("visit_count");
-			if (iframe_visit_counter) {
-				iframe_visit_counter = Number(iframe_visit_counter)+1;
-        } else {
-            iframe_visit_counter = 1;
-        }
-		contextStorage.setItem("visit_count", iframe_visit_counter, true )
-		writeText("According to 3rd party storage have have visited " + iframe_visit_counter + " time(s)");
+				if (iframe_visit_counter) {
+					iframe_visit_counter = Number(iframe_visit_counter)+1;
+			} else {
+				iframe_visit_counter = 1;
+			}
+			contextStorage.setItem("visit_count", iframe_visit_counter, true )
+			writeText("According to 3rd party storage you have visited " + iframe_visit_counter + " time(s)");
+			writeText("Done.");
+		},1200);
 	});
 } else {
 	writeText("No local storage support found!");
+	writeText("Done.");
 }
 
 writeText("checking cookie persistency...");
 var cvisits = cookieVisitCounter();
 writeText("According to Cookies you have visited " + cvisits + " time(s)");
-writeText("Done.");
+
 
 
 
