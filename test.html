@@ -2,7 +2,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="//ebrosh.github.io/store-simulator/js/cdstorage.js"></script>
+  <script type="text/javascript" src="/store-simulator/js/cdstorage.js"></script>
 </head>
 <body>
 <h1>Persistency test!</h1>
@@ -52,6 +52,7 @@ function visitCounter() {
 	}
 }
 
+
 function cookieVisitCounter() {
 	var cVisitCount = getCookie("visits");
 	var counter;
@@ -74,8 +75,20 @@ if (hasStorage) {
 	writeText("storage supported.");
 	var visits = visitCounter();
 	writeText("You have visited " + visits + " time(s)");
+	window.contextStorage = new CDStorage("", "");
+	window.contextStorage.init();
+	contextStorage.onCacheReady().then(function () {
+			var iframe_visit_counter = contextStorage.getItem("visit_count");
+			if (iframe_visit_counter) {
+				iframe_visit_counter = Number(iframe_visit_counter)+1;
+        } else {
+            iframe_visit_counter = 1;
+        }
+		contextStorage.setItem("visit_count", iframe_visit_counter, true )
+		writeText("According to 3rd party storage have have visited " + iframe_visit_counter + " time(s)");
+	});
 } else {
-	writeText("No Local storage supportd found!");
+	writeText("No local storage support found!");
 }
 
 writeText("checking cookie persistency...");
