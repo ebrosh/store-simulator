@@ -74,7 +74,7 @@ function writeText(text) {
 if (hasStorage) {
 	writeText("storage supported.");
 	var visits = visitCounter();
-	writeText("You have visited " + visits + " time(s)");
+	writeText("You have visited <span style='font-size:120%;font-weight:bold'>" + visits + " time(s)</span>");
 	window.contextStorage = new CDStorage("", "");
 	window.contextStorage.init();
 	contextStorage.onCacheReady().then(function () {
@@ -87,7 +87,7 @@ if (hasStorage) {
 				iframe_visit_counter = 1;
 			}
 			contextStorage.setItem("visit_count", iframe_visit_counter, true )
-			writeText("According to 3rd party storage you have visited " + iframe_visit_counter + " time(s)");
+			writeText("According to 3rd party storage you have visited <span style='font-size:120%;font-weight:bold'>" + iframe_visit_counter + " time(s)</span>");
 			writeText("Done.");
 		},1200);
 	});
@@ -98,7 +98,7 @@ if (hasStorage) {
 
 writeText("checking cookie persistency...");
 var cvisits = cookieVisitCounter();
-writeText("According to Cookies you have visited " + cvisits + " time(s)");
+writeText("According to Cookies you have visited <span style='font-size:120%;font-weight:bold'>" + cvisits + " time(s)</span>");
 
 
 
@@ -106,6 +106,8 @@ writeText("According to Cookies you have visited " + cvisits + " time(s)");
 
 </script>
 
+<a href="http://ec2-54-147-4-39.compute-1.amazonaws.com/store-simulator/test.html">link to domain ec2-54-147-4-39.compute-1.amazonaws.com</a>
+<a href="ebrosh.github.io/store-simulator/test.html">link to domain ebrosh.github.io</a>
 
 </body>
 </html>
