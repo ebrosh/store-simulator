@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://app.cdn-cs.com/iframe.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+// 3.3
+(function(){function h(b){var a;try{a=JSON.parse(b.data)}catch(h){return}if(a.type)if(0===a.type.indexOf("get")){var c=a,d,f;if("get"===c.type)d=k(c.key);else if("getAllRaw"===c.type){d={};for(var e in localStorage)f=localStorage.getItem(e),g(f,"timestamp")?(a=JSON.parse(f),(new Date).getTime()<a.timestamp?d[e]=f:localStorage.removeItem(e)):d[e]=f;d=JSON.stringify(d)}else if("getAll"===c.type){d={};for(f in localStorage)d[f]=k(f);d=JSON.stringify(d)}b.source.postMessage(JSON.stringify({id:c.id,key:c.key,
+value:d}),b.origin)}else if("set"===a.type)l(a);else if("setRaw"===a.type)localStorage.setItem(a.key,a.value);else if("unset"===a.type)localStorage.removeItem(a.key);else if("unsetDomain"==a.type)for(var m in localStorage)m.split(".")[0]===a.key&&localStorage.removeItem(m);else if("extendSession"===a.type)for(b=0;b<localStorage.length;b++)e=localStorage.key(b),c=localStorage.getItem(e),g(c,"_csIsSession")&&(c=k(e),void 0!==c&&l({key:e,value:c}));else if("endSession"===a.type){b={};for(e=0;e<localStorage.length;e++)d=
+localStorage.key(e),f=localStorage.getItem(d),g(f,"_csIsSession")&&(b[d]=1);for(c in b)localStorage.removeItem(c)}}function l(b){if(!1===b.persistence)localStorage.setItem(b.key,b.value);else{var a={value:b.value},c=parseInt(b.persistence,10),d=!1;if(!0===b.persistence||c!==c)c=18E5,d=!0;a.timestamp=(new Date).getTime()+c;d&&(a._csIsSession=!0);a=JSON.stringify(a);localStorage.setItem(b.key,a)}}function g(b,a){try{return JSON.parse(b).hasOwnProperty(a)}catch(c){return!1}}function k(b){var a=localStorage.getItem(b);
+g(a,"timestamp")&&(obj=JSON.parse(a),(new Date).getTime()<obj.timestamp?a=obj.value:(a=void 0,localStorage.removeItem(b)));return a}window.addEventListener?window.addEventListener("message",h,!1):window.attachEvent&&window.attachEvent("onmessage",h)})();
+</script>
+
+</body></html>

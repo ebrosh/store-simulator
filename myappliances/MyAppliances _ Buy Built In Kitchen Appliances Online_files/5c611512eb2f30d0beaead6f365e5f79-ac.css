@@ -1,0 +1,11 @@
+.nxt-ac-main {z-index:99999 !important; width:398px !important; }
+
+.nxt-ac-main .nxt-ac-header {background: #1e1e1e;
+color: #bccf35;
+}
+
+.nxt-ac-main .nxt-ac-selected {background:#FFFFFF;}
+
+.nxt-ac-item .nxt-item-txt {color: #1e1e1e;}
+
+.nxt-ac-item .nxt-item-txt:hover {color: #8c8990;}

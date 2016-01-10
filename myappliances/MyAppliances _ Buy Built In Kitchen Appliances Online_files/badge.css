@@ -1,0 +1,514 @@
+/*Global styles*/
+#universal_badge {
+  position: fixed;
+  min-height:60px;
+}
+
+#gts_container{
+  position: relative;
+  display: inline-block;
+}
+
+#ll_badge {
+    border: 1px solid #CCC;
+    letter-spacing: normal;
+    moz-border-radius: 2px;
+    border-radius: 2px;
+    webkit-border-radius: 2px;
+    moz-box-sizing: content-box;
+    box-sizing: content-box;
+    webkit-box-sizing: content-box;
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+#ll_badge div:first-child {
+    background-color: #fff;
+    border-bottom: 1px solid #CCC;
+    text-align: center;
+    text-transform: none;
+}
+
+#ll_award_names {
+    color: #777;
+    display: block;
+    font-weight: 700;
+}
+
+#ll_badge_footer {
+    background: #f2f2f2  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAAAUCAMAAADV5rESAAAAq1BMVEVMaXGGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhobxaSCGhoaGhoaGhoaGhoaGhoaGhoaGhob84tPxaSD1pHn6xqjxaSD10Lv1l2PxaSDxaSDxaSDxaSD3rIP4t5PydTL4tZL0jVb3q4LxaSDxaSCGhob////wgkfxaSD4tJDxcS3wm274rYTvvKHu7u7u5uL849bvxa7v1cfu3dTv1cjvtJTzfDz97OP6x6v72cdVbfywAAAAJHRSTlMAEMCg8DDQQIDAsGAgUJBw4O9P/fNA+PwQIICg2LrE3Pr2MGDwWw9qAAABw0lEQVR4Xs2S545cIQyFwZgS+rTt6Z62NbW8/5PlYu5KWWWulESzUs4PjCzzYR1bjDpbrcQz6f3lfH757lnQ89X5xcX5/OzY3Nez2Wz59nS5fLM4Ga4vj8n++rBef/+xHnT6bb1+eHVM9s1ut1vsmm7a9eqY7O1TvRjTIfeoQRxUMkTkoxDS/jXbjUxL4pA0eRuTQckF/8KeljPtlFj+kL3/sPmdrUFD5CilQjKjA8pwyCEYgjyUV6puqMraQ/ML81P27cf9QU+wNBgIqMkqjJwOpDRfYiGrhcJgw8CzBpVLlG3C/Cv7+n5z2O/cesSgqdFA9XyphL7IPpBIlv+LlooQRvG72NmL2+12c3c9McsGTShdtYNyFaN08Yia2aUnMbH5VFoh2c7efPq8uf8yuScmC6WEQ2D1tORZmsoFYzG4zjZcl4QYx3h3Mr2DoUq042rEPkwKHBL1vrEnx77t4++Pbu+n2ZJUFaL77T2njeHGfR39buMuJJltPL/T0/tdHYurFbnhBAzWU+9bY3WpAKX2cRAZnXXkBiJjvQ3oxSTbuq7YqNrF5q4D8FZ0xQwAvIel7XcA8GnIOn7rAZycYP//+gnXtTfHSRx4ygAAAABJRU5ErkJggg==')
+                no-repeat center;
+}
+
+#ll_panel {
+    background-color: #DDD;
+    letter-spacing: normal;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-transform: none;
+}
+
+#store_name {
+    color: #9f9f9f;
+    font-weight: 700;
+}
+
+#panel_award_name {
+    color: #000;
+    font-weight: 700;
+}
+
+#panel_award_description {
+    color: #000;
+    display: block;
+}
+
+#panel_close_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#panel_close_icon {
+        background:   url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAK1JREFUGBmNUFsOgjAQtHqAJn2cCH9Q8bNHKGeiR2j/hMiPnKhA0gMY3CGpITEmzM9OZza7s2UhhGWe56Gu6/OB4L0/oRpj3qhN07yEEAUDkVIW0zS11HyHmUHeg7yKvGHVIBAW51ybm8ChwYPGtoZS6hZj7KFprctxHDtrbYU3Q6ZNnifnvISRUuopygUcPUeQPfiupiwdrbv+W70Oy8egOU//OYbMXd/D9n74Bx5jgWOgpMz3AAAAAElFTkSuQmCC')
+                    no-repeat center;
+        background-size: contain;
+    }
+
+#top_products_header {
+    color: #888;
+    line-height: normal;
+}
+
+#ll_panel .top_product_lines {
+    border-bottom: 1px solid #CCC;
+}
+
+#ll_panel .product_titles {
+    color: #000;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#ll_panel .product_links {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    text-decoration: none;
+}
+
+#ll_panel .product_links:hover {
+    text-decoration: underline;
+}
+
+#ll_panel .product_img {
+    border: 0;
+    display: inline;
+    padding: 0;
+}
+
+#ll_panel .product_chevron {
+    border: 0;
+    display: inline;
+    position:relative;
+    top:30%;
+    vertical-align: top;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAALCAYAAACzkJeoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAH9JREFUeNpiYACCs2fOGACxAAMaYAIKKgDp/SCMroDJ2MTkAZDeAMQG6AqYQARQQSKQWgBVcB5kDUicEdkYoGA/kCoA4g9A7MiI7gigggYgVQ9SwIwmATJuOhBzAHEmI5oEyNUgByUC3bGAEZcE2EFQp99Hl0C2KwGE0R0HEGAAkXk3YIy1+rgAAAAASUVORK5CYII=)
+                    no-repeat center;
+    background-size: contain;
+}
+
+#ll_panel #top_products_body {
+    background-color: #fff;
+    display: block;
+}
+
+#ll_default_message {
+    color: #666;
+    display: inline-block;
+    vertical-align: top;
+}
+#panel_footer a {
+    float: right;
+}
+
+#ll_panel .panel_help_icon {
+    background:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAATFJREFUeNp8U8FtAjEQPFv5RqIEkgaghKMC6CDHN5+DCgwVcHz4QgdcKuDSwaWBhBJANMCsNI6WxXcrrSx7Z2fH67XLEnb7fB9iyeFDddy87n4bi3UmcYBlAy/gZ3q0nPsliOonAiSPsRy5fQApVSV8Aa8QX/4TsPKJ2AmCl6zDgBV1exapIsGK7G8xmYpK9uELflAxUREE70lcklFXPrEXsS8hBqQyFsEWHmw5QbWSGc8EOOHx2NxG8NMXblpdnc/lTG++DYHsZz7rt4KV1yBdpQC+Q160tidZcs6eci98HmtBN8/YhxTwqiGBd7YKmsQsLPi8Wz1If0IERfO+pnA+pLFbuZpLBGTe5wi2HZWDLuQS877nx4nyr/ARzzI2tUr+RqNmxsQByX5Y+eGf3AUYAITPgVizSZCfAAAAAElFTkSuQmCC')
+                no-repeat center;
+    background-size: contain;
+    float: right;
+}
+
+#panel_description {
+    color: #444;
+}
+
+#panel_logo {
+    border: 0;
+    background:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAAAUCAMAAADV5rESAAAAq1BMVEVMaXGGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhobxaSCGhoaGhoaGhoaGhoaGhoaGhoaGhob84tPxaSD1pHn6xqjxaSD10Lv1l2PxaSDxaSDxaSDxaSD3rIP4t5PydTL4tZL0jVb3q4LxaSDxaSCGhob////wgkfxaSD4tJDxcS3wm274rYTvvKHu7u7u5uL849bvxa7v1cfu3dTv1cjvtJTzfDz97OP6x6v72cdVbfywAAAAJHRSTlMAEMCg8DDQQIDAsGAgUJBw4O9P/fNA+PwQIICg2LrE3Pr2MGDwWw9qAAABw0lEQVR4Xs2S545cIQyFwZgS+rTt6Z62NbW8/5PlYu5KWWWulESzUs4PjCzzYR1bjDpbrcQz6f3lfH757lnQ89X5xcX5/OzY3Nez2Wz59nS5fLM4Ga4vj8n++rBef/+xHnT6bb1+eHVM9s1ut1vsmm7a9eqY7O1TvRjTIfeoQRxUMkTkoxDS/jXbjUxL4pA0eRuTQckF/8KeljPtlFj+kL3/sPmdrUFD5CilQjKjA8pwyCEYgjyUV6puqMraQ/ML81P27cf9QU+wNBgIqMkqjJwOpDRfYiGrhcJgw8CzBpVLlG3C/Cv7+n5z2O/cesSgqdFA9XyphL7IPpBIlv+LlooQRvG72NmL2+12c3c9McsGTShdtYNyFaN08Yia2aUnMbH5VFoh2c7efPq8uf8yuScmC6WEQ2D1tORZmsoFYzG4zjZcl4QYx3h3Mr2DoUq042rEPkwKHBL1vrEnx77t4++Pbu+n2ZJUFaL77T2njeHGfR39buMuJJltPL/T0/tdHYurFbnhBAzWU+9bY3WpAKX2cRAZnXXkBiJjvQ3oxSTbuq7YqNrF5q4D8FZ0xQwAvIel7XcA8GnIOn7rAZycYP//+gnXtTfHSRx4ygAAAABJRU5ErkJggg==') no-repeat left;
+}
+
+#ll_badge,#ll_badge *,#ll_panel,#ll_panel * {
+    box-sizing: content-box;
+    moz-box-sizing: content-box;
+    webkit-box-sizing: content-box;
+}
+
+#ll_overlay {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    display: none;
+    position: absolute;
+}
+
+
+    .ll_right_0{ 
+        right: 0px;
+    }
+    .ll_left_0{ 
+        left: 0px;
+    }
+    .ll_right_s{
+        right: .3em;
+    }
+    .ll_left_s{
+        left: .3em;
+    }
+
+    .ll_right_l{
+        right: 150px;
+    }
+    .ll_top_0{
+    top: 0px;
+    }
+    .ll_top_l{
+    top: 40px;
+    }
+
+/*Styles that change*/
+/*mobile styles*/
+@media only screen and (max-device-width:415px) and (orientation:portrait), 
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (        min-device-pixel-ratio: 2)      and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (                min-resolution: 192dpi) and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (                min-resolution: 2dppx)  and (min-device-width: 320px) and (max-width: 415px) and (orientation:portrait),
+only screen and (-webkit-min-device-pixel-ratio : 2)     and (min-device-width: 375px) and (max-width: 667px) and (orientation:portrait),
+only screen and (-webkit-min-device-pixel-ratio : 3)     and (min-device-width: 414px) and (max-width: 736px) and (orientation:portrait){
+    
+    #universal_badge {
+        bottom:.3em;
+    }
+
+    #ll_badge {
+        width: 35%;
+        min-width:120px;
+    }
+    .ll_right_0{ 
+        right: 0px;
+    }
+    .ll_left_0{ 
+        left: 0px;
+    }
+    .ll_right_s{
+        right: .3em;
+    }
+
+    .ll_left_s{
+        left: .3em;
+    }
+
+    .ll_right_l{
+        right: 150px;
+    }
+
+    #ll_badge div:first-child {
+        height: .8em;
+        padding: .3em .6em .6em;
+    }
+
+    #ll_award_names {
+        line-height: 1em;
+        font-size: .8em;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        white-space: -webkit-pre-wrap;
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    #ll_badge_footer {
+        height: 1.125em;
+        line-height: 0.8em;
+        padding: .3em .3em .5em .3em;
+        text-align: center;
+        }
+
+    #ll_panel {
+        bottom:0px;
+    }
+
+    #panel_header {
+        max-height: 7.5em;
+        padding: .3em .6em;
+    }
+
+    #store_name {
+        font-size: 1em;
+    }
+
+    #panel_award_name {
+        line-height: normal;
+        font-size: .9em;
+    }
+
+    #panel_award_description {
+        height: 1.9em;
+        line-height: 100%;
+        margin-top: .3em;
+        margin-bottom: .8em;
+        font-size: .75em;
+    }
+
+    #panel_close_btn {
+        padding: .6em .6em 3.2em 3.2em;
+    }
+
+    #panel_close_icon {
+        padding: .5em;
+    }
+
+    #top_products_header {
+        font-size: .65em;
+        margin-top: .9em;
+    }
+
+    #ll_panel .top_product_lines {
+        height: 2.5em;
+        padding: .3em .6em;
+    }
+
+    #ll_panel .product_titles {
+        font-size: 1em;
+        line-height: normal;
+        margin-top: .9em;
+        padding-left: .6em;
+        width: 78%;
+    }
+
+    #ll_panel .product_img {
+        /*The !important is on the width to fix the badge layout on 1 clients page: parts4repair.com !important in it's stylesheet. 
+        Feel free to remove it if your development requires to change it.*/
+        width: 2em !important;
+        height: 2em;
+        margin-top: .2em;
+    }
+
+    #ll_panel .product_chevron {
+        padding: .4em .2em;
+    }
+
+    #ll_panel #top_products_body {
+        line-height: 120%;
+    }
+
+    #ll_default_message {
+        font-size: .9em;
+        height: 5.6em;
+        padding: .9em .6em;
+        width: 90%;
+    }
+
+    #panel_footer a {
+        padding: 0 .6em 0 .4em;
+    }   
+
+    #ll_panel .panel_help_icon {
+        padding: .5em;
+    }
+
+    #panel_description {
+        font-size: .6em;
+        margin: .5em 0;
+    }
+
+    #panel_footer {
+        height: 2.8em;
+        padding: .6em .0em .6em .6em;
+    } 
+
+    #panel_logo {
+        padding: .5625em 5em;
+        margin-right: .3em;
+        margin-top: .3em;
+    }
+
+    #ll_overlay {
+        box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+        width: 100%;
+        bottom:.3em;
+    }
+}
+
+/*tablet and desktop styles and landscape orientation*/
+@media only screen and (min-width:416px), screen and (orientation : landscape) {
+    #universal_badge {
+        bottom:5px;
+    }
+
+
+    #ll_badge {
+        width: 144px;       
+    }
+
+    .ll_right_0{ 
+        right: 0px;
+    }
+
+    .ll_left_0{ 
+        left: 0px;
+    }
+
+    .ll_right_s{
+        right: 5px;
+    }
+
+    .ll_left_s{
+        left: 5px;
+    }
+
+    .ll_right_l{
+        right: 157px;
+    }
+
+    #ll_badge div:first-child {
+        height: 13px;
+        padding: 5px 10px;
+    }
+
+    #ll_award_names {
+        line-height: 12px;
+        font-size: 14px;
+    }
+
+    #ll_badge_footer {
+        height: 20px;
+        line-height: 12px;
+        padding: 5px 8px;
+    }
+
+    #ll_panel {
+        box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+        width: 310px;
+        bottom: 0px;
+    }
+
+    #panel_header {
+        max-height: 120px;
+        padding: 5px 10px;
+    }
+
+    #store_name {
+        font-size: 15px;
+    }
+
+    #panel_award_name {
+        line-height: normal;
+        font-size: 14px;
+    }
+
+    #panel_award_description {
+        height: 30px;
+        line-height: 100%;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    #panel_close_btn {
+        padding: 10px 10px 50px 50px;
+    }
+
+    #panel_close_icon {
+        padding: 8px;
+    }
+
+    #top_products_header {
+        font-size: 10px;
+        margin-top: 15px;
+    }
+
+    #ll_panel .top_product_lines {
+        height: 40px;
+        padding: 5px 10px;
+    }
+
+    #ll_panel .product_titles {
+        font-size: 15px;
+        line-height: normal;
+        margin-top: 10px;
+        padding-left: 10px;
+        width: 243px;
+    }
+
+    #ll_panel .product_img {
+        /*The !important is on the width to fix the badge layout on 1 clients page: parts4repair.com !important in it's stylesheet. 
+        Feel free to remove it if your development requires to change it.*/
+        width: 30px !important; 
+        height: 30px;
+        margin-top: 3px;
+    }
+
+    #ll_panel .product_chevron {
+        padding: 5px 3px;
+    }
+
+    #ll_panel #top_products_body {
+        font-size: 12px;
+        line-height: 120%;
+    }
+
+    #ll_default_message {
+        font-size: 15px;
+        height: 90px;
+        padding: 15px 10px;
+        width: 280px;
+    }
+
+    #ll_panel .panel_help_icon {
+        padding: 8px;
+    }
+
+    #panel_description {
+        font-size: 10px;
+        margin: 5px 0;
+    }
+
+    #panel_footer {
+        height: 45px;
+        padding: 5px 10px;
+    }
+
+    #panel_logo {
+        padding: 9px 80px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    #ll_overlay {
+        box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+        width: 177px;
+        bottom: 0px;
+    }
+}
+
+
