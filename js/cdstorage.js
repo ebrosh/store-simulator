@@ -14,7 +14,7 @@ function CDStorage(origin, path){
 	siteId = "AAAAAA";
     this._iframe = null;
     this._iframeReady = false;
-	this._origin = "https://perscdn.taboola.com/iframe.html";//origin;
+	this._origin = "https://perscdn.taboola.com/static/iframe.html";//origin;
     this._path = path;
     this._queue = [];
     this._requests = {};
