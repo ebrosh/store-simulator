@@ -95,9 +95,9 @@ function writeText(text) {
 }
 
 if (hasStorage) {
-	writeText("storage supported.");
+	writeText("Local storage is supported.");
 	var visits = visitCounter();
-	writeText("You have visited <span style='font-size:120%;font-weight:bold'>" + visits + " time(s)</span>");
+	writeText("According the Local Storage you visited <span style='font-size:120%;font-weight:bold'>" + visits + " time(s)</span>");
 	window.contextStorage = new CDStorage("", "");
 	window.contextStorage.init();
 	contextStorage.onCacheReady().then(function () {
@@ -115,19 +115,19 @@ if (hasStorage) {
 		},1200);
 	});
 } else {
-	writeText("No local storage support found!");
+	writeText("No Local storage support found!");
 	writeText("Done.");
 }
 
-writeText("checking session storage persistency...");
+writeText("checking Session Storage support...");
 if (hasSessionStorage) {
 	var sessionVisits = sessionVisitCounter();
-	writeText("By sessions: visited <span style='font-size:120%;font-weight:bold'>" + sessionVisits + " time(s)</span>");
+	writeText("According to Session Storage you visited <span style='font-size:120%;font-weight:bold'>" + sessionVisits + " time(s)</span>");
 } else {
 	writeText("No session storage support found!");
 }
 
-writeText("checking cookie persistency...");
+writeText("Checking cookies...");
 var cvisits = cookieVisitCounter();
 writeText("According to Cookies you have visited <span style='font-size:120%;font-weight:bold'>" + cvisits + " time(s)</span>");
 
