@@ -155,7 +155,7 @@ window.outputResponse = function() {
 var url = window.location.href
 var arr = url.split("/");
 
-add_script(arr[0] + '//cdn.commercesciences.com/cookie-counter',window.outputResponse);
+add_script(arr[0] + '//cdn.commercesciences.com/cookie-counter?cachecontrol=' + Math.random(),window.outputResponse);
 var t1 = setTimeout(function() {
 	writeText("<span style='font-size:120%;font-weight:bold'>" + "No response from cookie server. If this continues text Eyal.B 054-5454550</span>");
 	window.thirdPartyCookieDone = true;
