@@ -102,7 +102,7 @@ if (hasStorage) {
 	window.contextStorage = new CDStorage("", "");
 	window.contextStorage.init();
 	contextStorage.onCacheReady().then(function () {
-		writeText("Testing 3rd party storage...");
+		writeText("Checking 3rd party storage...");
 		setTimeout (function() {
 			var iframe_visit_counter = contextStorage.getItem("visit_count");
 				if (iframe_visit_counter) {
@@ -133,16 +133,25 @@ var cvisits = cookieVisitCounter();
 writeText("According to Cookies you have visited <span style='font-size:120%;font-weight:bold'>" + cvisits + " time(s)</span>");
 
 writeText("Checking 3rd party cookies...");
+window.visitCounter = null;
 window.responseHandler = function(counterJSON) {
 	window.visitCounter = counterJSON.count; 
 }
 window.outputResponse = function() {
-	writeText("According to 3rd party cookie you have visited <span style='font-size:120%;font-weight:bold'>" + window.visitCounter + " time(s)</span>");
+	clearTimeout(t1);
+	if (typeof window.visitCounter) {
+		writeText("According to 3rd party cookie you have visited <span style='font-size:120%;font-weight:bold'>" + window.visitCounter + " time(s)</span>")
+	} else {
+		writeText("<span style='font-size:120%;font-weight:bold'>" + "Invalid response from cookie server :(</span>");
+	}
 }
 var url = window.location.href
 var arr = url.split("/");
 
 add_script(arr[0] + '//cdn.commercesciences.com/cookie-counter',window.outputResponse);
+var t1 = setTimeout(function() {
+	writeText("<span style='font-size:120%;font-weight:bold'>" + "No response from cookie server :( If this continues you can call Eyal 054-5454550</span>");
+},5000);
 
 
 </script>
