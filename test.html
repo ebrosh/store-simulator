@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="./js/cdstorage.js"></script>
+  <script type="text/javascript" src="./js/jsonp.js"></script>
 </head>
 <body>
 <h1>Persistency test!</h1>
@@ -131,8 +132,17 @@ writeText("Checking cookies...");
 var cvisits = cookieVisitCounter();
 writeText("According to Cookies you have visited <span style='font-size:120%;font-weight:bold'>" + cvisits + " time(s)</span>");
 
+writeText("Checking 3rd party cookies...");
+window.responseHandler = function(counterJSON) {
+	window.visitCounter = counterJSON.count; 
+}
+window.outputResponse = function() {
+	writeText("According to 3rd party cookie you have visited <span style='font-size:120%;font-weight:bold'>" + window.visitCounter + " time(s)</span>");
+}
+var url = window.location.href
+var arr = url.split("/");
 
-
+add_script(arr[0] + '//cdn.commercesciences.com/cookie-counter',window.outputResponse);
 
 
 </script>
